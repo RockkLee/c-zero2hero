@@ -1,0 +1,20 @@
+# CMake build directories
+/cmake-build-*/
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake
+/Makefile
+/compile_commands.json
+
+# Built binaries and objects
+*.o
+*.out
+*.a
+*.so
+
+# Local build outputs
+/c_zero2hero
+
+# IDE files
+/.idea/
+/.tmp/
