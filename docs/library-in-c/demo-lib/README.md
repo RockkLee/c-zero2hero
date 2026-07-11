@@ -40,7 +40,9 @@ int add(int left, int right);
 From the repository root:
 
 ```bash
+# CMake configure: source -> docs/library-in-c/demo-lib, build files -> /tmp/demo-lib-build
 cmake -S docs/library-in-c/demo-lib -B /tmp/demo-lib-build
+# CMake build: generated build files -> compiled targets
 cmake --build /tmp/demo-lib-build
 ```
 
@@ -49,6 +51,7 @@ cmake --build /tmp/demo-lib-build
 To make the library easy for another project to consume:
 
 ```bash
+# CMake install: build output -> /tmp/demo-lib-install
 cmake --install /tmp/demo-lib-build --prefix /tmp/demo-lib-install
 ```
 
