@@ -47,3 +47,18 @@ endforeach()
 list(REMOVE_DUPLICATES INC_INCLUDE_DIRS)
 
 target_include_directories(c_zero2hero PRIVATE ${INC_INCLUDE_DIRS})
+
+# Run this to run the valgrind memory leak check
+# cmake --build cmake-build-debug --target valgrind
+find_program(VALGRIND valgrind)
+if(VALGRIND)
+    add_custom_target(valgrind
+        COMMAND ${VALGRIND}
+            --leak-check=full
+            --show-leak-kinds=all
+            --track-origins=yes
+            $<TARGET_FILE:c_zero2hero>
+        DEPENDS c_zero2hero
+        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+    )
+endif()

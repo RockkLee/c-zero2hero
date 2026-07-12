@@ -54,6 +54,7 @@ int kv_put(kv_t *db, char *key, char *value) {
             // same key found -> replace the old value with the new value
             char *newval = strdup(value);
             if (!newval) return -1;
+            free(entry->value);
             entry->value = newval;
             return real_idx;
         }
